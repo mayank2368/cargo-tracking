@@ -1,6 +1,7 @@
-import faker from "@faker-js/faker";
+import {faker} from "@faker-js/faker";
 
-class Destination  {
+
+export class Destination  {
     receiver: string;
     location: {
         lat: number,
@@ -8,7 +9,11 @@ class Destination  {
     };
 
     constructor() {
-    
+        this.receiver = faker.person.firstName();
+        this.location = {
+            lat: +faker.location.latitude(),
+            lon: +faker.location.longitude()
+        }
     }
 }
 
