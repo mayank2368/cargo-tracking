@@ -1,7 +1,9 @@
 import { faker  } from "@faker-js/faker";
+import { Entity } from "./TrackingMap";
 
-export class Cargo {
+export class Cargo implements Entity {
     trackingId: string;
+    weight: number;
     location: {
         lat: number;
         lon: number;
@@ -13,6 +15,9 @@ export class Cargo {
             lat: +faker.location.latitude(),
             lon: +faker.location.longitude(),
         }
+    }
+    popupText(): string{
+        return `<h3>Return Name: ${this.trackingId}</h3>`;
     }
 
 }

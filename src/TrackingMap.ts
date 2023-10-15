@@ -1,9 +1,11 @@
 
-interface Entity {
+export interface Entity {
     location: {
         lat: number,
         lon: number,
     };
+    popupText(): string;
+    weight: number;
 }
 
 export class TrackingMap {
@@ -29,7 +31,7 @@ attachMarker(entity: Entity): void {
 
     marker.addListener('click', ()=> {
         const popup = new google.maps.InfoWindow({
-            content: "Here I am",
+            content: entity.popupText(),
         });
         popup.open(this.googleMap, marker);
     });

@@ -1,8 +1,9 @@
 import {faker} from "@faker-js/faker";
+import { Entity } from "./TrackingMap";
 
-
-export class Destination  {
+export class Destination implements Entity {
     receiver: string;
+    weight: number;
     location: {
         lat: number,
         lon: number
@@ -15,7 +16,10 @@ export class Destination  {
             lon: +faker.location.longitude()
             
         }
-        console.log(Destination);
+        
+    }
+    popupText(): string {
+            return `<h3>Return Name: ${this.receiver}</h3>`
     }
 }
 
