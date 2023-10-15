@@ -13,7 +13,9 @@ export class Destination  {
         this.location = {
             lat: +faker.location.latitude(),
             lon: +faker.location.longitude()
+            
         }
+        console.log(Destination);
     }
 }
 

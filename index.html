@@ -4,9 +4,46 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        color: black;
+      }
+
+      body {
+        background-color: antiquewhite;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      #root {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+
+      #g-map {
+        flex: 1;
+        margin: 10px;
+      }
+    </style>
   </head>
   <body>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqqkCBEvf4LzSiEijWkVQLVL_pyftVmqE"></script>
+    <div id="root">
+      <h1>Cargo Tracking App</h1>
+      <div id="g-map"></div>
+    </div>
+    <script defer type="module">
+      import { initMap } from "./scripts.js";
+
+      window.initMap = initMap;
+    </script>
+    <script
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1rSrdJL8wraTlmAi5zGEhg28d_ga33Ys&libraries=places&callback=initMap"
+    ></script>
     <script src="./dist/bundle.js"></script>
   </body>
 </html>
